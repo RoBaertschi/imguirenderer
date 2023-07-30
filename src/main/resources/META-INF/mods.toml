@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+[[mods]]
+modId="imguirenderer"
+version="1.0.0"
+displayName="ImGUI Renderer"
+#logoFile="examplemod.png"
+credits="Thanks goes to Root3287 for the basis of this"
+authors="Root3287, RoBaertschi"
+description='''
+Simple ImGUI Renderer in Minecraft
+'''
+[[dependencies.imguirenderer]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.imguirenderer]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"

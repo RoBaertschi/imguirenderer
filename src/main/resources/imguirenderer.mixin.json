@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "robaertschi.imguirenderer.mixins",
+	"mixins": [
+	],
+	"client": [
+		"RenderSystemMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
