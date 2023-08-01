@@ -197,6 +197,10 @@ tasks.withType<PublishToMavenLocal>().configureEach {
 	}
 }
 
+magik {
+	verbose.convention(true)
+}
+
 tasks.withType<JavaCompile>().configureEach {
 	options.encoding = "UTF-8"
 }
