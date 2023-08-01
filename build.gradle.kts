@@ -169,7 +169,6 @@ publishing {
 		}
 
 		github {
-			name = "github"
 			domain = "RoBaertschi/mirror"
 		}
 
