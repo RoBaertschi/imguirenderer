@@ -7,26 +7,23 @@ import imgui.flag.ImGuiConfigFlags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-public class ImGuiScreen extends Screen{
-	
-	private static ImGuiScreen _INSTANCE = null;
-	
-	public static ImGuiScreen getInstance() {
-		if(_INSTANCE == null) { _INSTANCE = new ImGuiScreen(); }
-		return _INSTANCE;
+public class ImGUIScreen extends Screen {
+
+	private static ImGUIScreen INSTANCE = null;
+
+	public static ImGUIScreen getInstance() {
+		if(INSTANCE == null) { INSTANCE = new ImGUIScreen(); }
+		return INSTANCE;
 	}
 
-	private ImGuiScreen() {
-		super(Component.literal("ImGui"));
+	private ImGUIScreen() {
+		super(Component.literal("ImGUI"));
 	}
 	
 	public void init() {
 		ImGui.getIO().removeConfigFlags(ImGuiConfigFlags.NoMouse);
 	}
-	
-	public void render(PoseStack proseStack, int x, int y, float partialTicks) {
 
-	}
 
 	@Override
 	public void removed() {

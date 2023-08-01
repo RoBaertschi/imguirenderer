@@ -12,15 +12,13 @@ import imgui.glfw.ImGuiImplGlfw;
 import net.minecraft.client.Minecraft;
 
 public class ImGUIRenderer {
-	private static ImGUIRenderer _INSTANCE = null;
+	private static ImGUIRenderer INSTANCE = null;
 	
 	public static ImGUIRenderer getInstance() {
-		if(_INSTANCE == null) _INSTANCE = new ImGUIRenderer();
-		return _INSTANCE;
+		if(INSTANCE == null) INSTANCE = new ImGUIRenderer();
+		return INSTANCE;
 	}
-	
-	private ArrayList<ImGUICall> _preDrawCalls = new ArrayList<>();
-	private ArrayList<ImGUICall> _drawCalls = new ArrayList<>();
+	private final ArrayList<ImGUICall> drawCalls = new ArrayList<>();
 	private final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
 	private final ImGuiImplGl3 imGuiGl = new ImGuiImplGl3();
 	
@@ -33,29 +31,19 @@ public class ImGUIRenderer {
 		imGuiGlfw.init(Minecraft.getInstance().getWindow().getWindow(), false);
 		imGuiGl.init();
 	}
-	
-	public void preDraw(ImGUICall drawCall) {
-		_preDrawCalls.add(drawCall);
-	}
-	
+
 	public void draw(ImGUICall drawCall) {
-		_drawCalls.add(drawCall);
+		drawCalls.add(drawCall);
 	}
 	
 	public void render() {
-		for(ImGUICall preDrawCall : _preDrawCalls) {
-			preDrawCall.execute();
-		}
-		_preDrawCalls.clear();
-		
 		imGuiGlfw.newFrame();
 		ImGui.newFrame();
 		
-		// Render ImGui Here
-		for(ImGUICall drawCall : _drawCalls) {
+		for(ImGUICall drawCall : drawCalls) {
 			drawCall.execute();
 		}
-		_drawCalls.clear();
+		drawCalls.clear();
 		
 		ImGui.render();
 		imGuiGl.renderDrawData(Objects.requireNonNull(ImGui.getDrawData()));

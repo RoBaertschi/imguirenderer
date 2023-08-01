@@ -1,25 +1,26 @@
 modLoader="javafml"
-loaderVersion="[47,)"
-license="MIT"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 [[mods]]
-modId="imguirenderer"
-version="1.0.0"
-displayName="ImGUI Renderer"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
 #logoFile="examplemod.png"
 credits="Thanks goes to Root3287 for the basis of this"
-authors="Root3287, RoBaertschi"
-description='''
-Simple ImGUI Renderer in Minecraft
-'''
-[[dependencies.imguirenderer]]
+authors="${mod_authors}"
+description='''${mod_description}'''
+[[dependencies.${mod_id}]]
     modId="forge"
     mandatory=true
-    versionRange="[47,)"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.imguirenderer]]
+[[dependencies.${mod_id}]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1,1.21)"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+#[feature.${mod_id}]
+#openGLVersion=""
